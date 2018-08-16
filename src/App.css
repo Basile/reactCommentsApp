@@ -1,0 +1,43 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+.app {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.thread-loader {
+    text-align: center;
+}
+
+.comment-thread {
+    margin-left: 30px;
+    padding: 10px 0;
+}
+
+.comment-thread .thread-expander {
+    float: left;
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.comment-thread .no-comments, .comment-thread .thread-loader {
+    color: grey;
+    font-size: 12px;
+}
+
+.comment {
+    min-height: 40px;
+}
+
+.comment .comment-form {
+    margin-right: 150px;
+}
+
+.comment .comment-actions {
+    float: right;
+}
+
+.comment .comment-actions button {
+    margin: 0 5px;
+}
