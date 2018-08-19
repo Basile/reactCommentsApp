@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@blueprintjs/core';
-import CommentContainer from '../container/Comment';
+import ExistingCommentContainer from '../container/ExistingComment';
 import CommentThreadContainer from '../container/CommentThread';
 import NewCommentContainer from '../container/NewCommentContainer';
 import { commentPropType } from "../util/commentPropType";
@@ -58,7 +58,7 @@ export default class CommentThread extends React.Component {
                     </div>
                 }
                 {(rootComment.id > 0) &&
-                    <CommentContainer
+                    <ExistingCommentContainer
                         comment={rootComment}
                     />
                 }
@@ -67,10 +67,11 @@ export default class CommentThread extends React.Component {
                 {isExpanded ?
                     childComments.length ? childComments.map((c) => (
                         <CommentThreadContainer
+                            key={c.id}
                             rootComment={c}
                             isExpanded={false}
                         />
-                    )) : <span className="no-comments">No comments yet</span>
+                    )) : <div className="no-comments">No comments yet</div>
                 : null}
 
                 {isExpanded &&

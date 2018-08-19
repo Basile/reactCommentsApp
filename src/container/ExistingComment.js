@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Comment from '../component/Comment';
+import ExistingComment from '../component/ExistingComment';
 import { updateComment, deleteComment } from '../redux/thunks';
 
 const mapStateToProps = (state, props) => {
@@ -17,6 +17,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const CommentContainer = connect(mapStateToProps, mapDispatchToProps)(Comment);
+const ExistingCommentContainer = connect(mapStateToProps, mapDispatchToProps)(ExistingComment);
 
-export default CommentContainer;
+export default ExistingCommentContainer;

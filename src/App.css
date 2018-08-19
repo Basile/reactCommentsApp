@@ -23,14 +23,15 @@
 
 .comment-thread .no-comments, .comment-thread .thread-loader {
     color: grey;
-    font-size: 12px;
+    font-size: 0.9em;
+    margin: 0 0 14px;
 }
 
 .comment {
     min-height: 40px;
 }
 
-.comment .comment-form {
+.comment .comment-data {
     margin-right: 150px;
 }
 
@@ -41,3 +42,10 @@
 .comment .comment-actions button {
     margin: 0 5px;
 }
+
+.comment .comment-error {
+    color: grey;
+    font-size: 0.9em;
+    margin: 0 0 14px;
+}
+

@@ -9,9 +9,9 @@ export const getComments = (parentId) => (dispatch, getState, commentsApi) => {
     return commentsApi.getComments(parentId)
         .then(comments => {
             dispatch(setThreadComments(parentId, comments));
-        })
-        .catch(error => {
+        }, error => {
             console.log("Error getting comments: " + error);
+            throw error;
         });
 };
 
@@ -20,9 +20,9 @@ export const createComment = (comment) => (dispatch, getState, commentsApi) => {
     return commentsApi.postComment(comment.parentId, data)
         .then((comment) => {
             dispatch(addComment(comment));
-        })
-        .catch(error => {
+        }, error => {
             console.log("Error creating comment: " + error);
+            throw error;
         });
 };
 
@@ -31,9 +31,9 @@ export const updateComment = (comment) => (dispatch, getState, commentsApi) => {
     return commentsApi.putComment(comment.id, data)
         .then(() => {
             dispatch(updateCommentInStore(comment));
-        })
-        .catch(error => {
+        }, error => {
             console.log("Error updating comment: " + error);
+            throw error;
         });
 };
 
@@ -41,8 +41,8 @@ export const deleteComment = (comment) => (dispatch, getState, commentsApi) => {
     return commentsApi.deleteComment(comment)
         .then(() => {
             dispatch(deleteCommentInStore(comment))
-        })
-        .catch(error => {
+        }, error => {
             console.log("Error updating comment: " + error);
+            throw error;
         });
 };

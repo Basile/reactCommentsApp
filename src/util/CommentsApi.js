@@ -1,3 +1,5 @@
+import ApiError from './ApiError';
+
 export default class CommentsApi {
 
     constructor(baseUrl, childEndpoint) {
@@ -40,11 +42,11 @@ export default class CommentsApi {
                 if ((response.status >= 200) && (response.status < 300)) {
                     return response.json();
                 } else {
-                    throw new Error(response.json() || 'Unexpected error');
+                    return response.json()
+                        .then(errorResponse => {
+                            throw new ApiError(errorResponse.message, errorResponse.data);
+                        });
                 }
-            })
-            .then(responseData => {
-                return responseData.data;
             });
     }
 }
